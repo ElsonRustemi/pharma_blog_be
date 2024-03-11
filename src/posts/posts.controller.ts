@@ -5,10 +5,9 @@ import { CreatePostDto } from 'src/DTO/create-post.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { Response } from 'express';
-// import { AuthGuard } from '@nestjs/passport';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('posts')
-// @UseGuards(AuthGuard())
 export class PostsController {
 
     constructor(private readonly postService: PostsService) {}
@@ -19,10 +18,11 @@ export class PostsController {
     }
 
     @Get(':id')
-    findOne(@Param('id') id: string): Promise<PostEntity> {
-        return this.postService.findOne(+id);
+    findOne(@Param('id') id: number): Promise<PostEntity> {
+        return this.postService.findOne(id);
     }
 
+    @UseGuards(AuthGuard())
     @Post()
     async create(@Body() createPostDto: CreatePostDto) {
         console.log(createPostDto);

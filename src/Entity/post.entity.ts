@@ -9,7 +9,7 @@ export class PostEntity {
     @Column({nullable: true})
     title: string;
 
-    @Column({nullable: true})
+    @Column({nullable: true, length: 500})
     content: string;
 
     @Column({nullable: true, type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})

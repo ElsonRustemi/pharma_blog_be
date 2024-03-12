@@ -14,7 +14,7 @@ import { JwtCustomStrategy } from './jwt-custom.strategy';
       secret: 'LPJz93zSi565iGznwd9rjjfev9koRx',
       signOptions: {
         algorithm: 'HS512',
-        expiresIn: '1d',
+        expiresIn: '1h',
       }
     }),
     PassportModule.register({

@@ -22,7 +22,7 @@ export class PostsController {
         return this.postService.findOne(id);
     }
 
-    @UseGuards(AuthGuard())
+    // @UseGuards(AuthGuard())
     @Post()
     async create(@Body() createPostDto: CreatePostDto) {
         console.log(createPostDto);

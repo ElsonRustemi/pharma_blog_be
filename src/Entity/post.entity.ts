@@ -19,6 +19,9 @@ export class PostEntity {
     modifiedOn: Date;
 
     @Column({nullable: true})
+    category: string;
+
+    @Column({nullable: true})
     imagePath: string;
 
     // @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
